@@ -1,0 +1,8 @@
+gitserver:
+    image: jgiannuzzi/gitolite
+    volumes:
+      - git-repos:/var/lib/git
+      - git-keys:/etc/ssh/keys
+    environment:
+      - SSH_KEY=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIFcmGQaUzw5e6cmL1XcvtA6OZFClB0AdyY5Zi2mO4ZY awesome149712@gmail.com
+      - SSH_KEY_NAME=git_admin

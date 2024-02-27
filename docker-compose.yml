@@ -1,0 +1,51 @@
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    ports: 
+      - 8080:80
+  backend:
+    build: backend
+    volumes:
+      - "git-repos:/app/gitrepos/"
+    expose:
+      - 8000
+    ports:
+      - "7777:8000"
+    environment:
+      - "FRONTEND_ADDR=http://localhost:8080"
+      - "UVICORN_HOST=0.0.0.0"
+      - "DB_LOGIN=pgusr"
+      - "DB_PASSWORD=pwd"
+      - "DB_NAME=scufdb"
+      - "DB_ADDR=postgres"
+    depends_on:
+      postgres:
+        condition: service_healthy
+  gitserver:
+    image: rockstorm/git-server
+    volumes:
+      - "git-repos:/srv/git"
+    ports:
+      - 2222:22
+  postgres:
+    image: postgres
+    environment:
+      - "POSTGRES_PASSWORD=pwd"
+      - "POSTGRES_USER=pgusr"
+      - "POSTGRES_DB=scufdb"
+    expose:
+      - 5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - "pg-data:/var/lib/postgres/data"
+
+volumes:
+  git-repos:
+  pg-data:

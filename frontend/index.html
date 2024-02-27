@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- подключение bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+		<!-- подключение google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+
+		<!-- подключим css -->
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="#">SkufCourse</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- как container-fluid -->
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-4">
+					<li class="nav-item">
+						<a id = "ert" class="nav-link" data-value="about" href="#">О нас</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-value="contact" href="#">Контакты</a>
+					</li>
+
+					<!-- регистрация и авторизация -->
+					<li class="nav-item btn-register">
+						<!-- регистрация -->
+						<button id="aut1" class="nav-link" type="button" href="#" data-bs-toggle="modal" data-bs-target="#authModalRegister">Регистрация</button>
+					</li>
+					<li class="nav-item btn-log-in">
+						<!-- регистрация -->
+						<button id="in1" class="nav-link" type="button" href="#" data-bs-toggle="modal" data-bs-target="#authModalEnter">Авторизация</button>
+					</li>
+				</ul>
+
+				<ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+					<!-- МОДАЛЬНЫЕ ОКНА ДЛЯ РЕГИСТРАЦИИ И АВТОРИЗАЦИИ -->
+
+					<div class="modal fade" id="authModalEnter" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="authModalLabel">Авторизация</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<!-- Форма для входа/регистрации -->
+									<form>
+										<div class="mb-3">
+											<label for="username" class="form-label">Логин</label>
+											<input type="text" class="form-control" id="username1" />
+										</div>
+										<div class="mb-3">
+											<label for="password" class="form-label">Пароль</label>
+											<input type="password" class="form-control" id="password1" />
+										</div>
+									</form>
+									<button id="voiti1" type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="hideButton()" aria-label="Close">Войти</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- МОДАЛЬНЫЕ ОКНА ДЛЯ РЕГИСТРАЦИИ -->
+					<div class="modal fade" id="authModalRegister" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="authModalLabel">Регистрация</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<!-- Форма для входа/регистрации -->
+									<form>
+										<div class="mb-3">
+											<label for="username" class="form-label">Логин</label>
+											<input type="text" class="form-control" id="username" />
+										</div>
+
+										<div class="mb-3">
+											<label for="password" class="form-label">Пароль</label>
+											<input type="password" class="form-control" id="password" />
+										</div>
+										
+										<label for="password" class="form-label">Роль </label>
+
+									<select id="mySelect" style="width: 150px; border-radius: 10px;background-color: #ddedf9; ">
+										<option value = "option1" style =" background-color: #74c0fc">Ученик</option>
+										<option value = "option2" style = "background-color: #74c0fc;">Преподователь</option>
+									</select>
+									</form>
+									<button id="voiti2" class="btn btn-primary" data-bs-dismiss="modal" onclick="hideButton()" aria-label="Close">Войти</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Modal окно корзина-->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="person" style="display: none">
+							<i class="fa-regular fa-user" style="color: #ffffff"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a id="allCourses" class="dropdown-item" href="#" style="color: #000000">Все курсы</a>
+							</li>
+							<li>
+								<a id="myCourses" class="dropdown-item"  href="#" style="color: #000000">Мои курсы</a>
+							</li>
+							<li>
+								<hr class="dropdown-divider" />
+							</li>
+							<li>
+								<button id="outButton" type="submit" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Выйти</button>
+								<!--<a class="dropdown-item" href="#">Стать скуфом</a>-->
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- Поиск search справа -->
+				<form class="d-flex" id="courseSearchForm" role="search">
+					<input class="form-control me-2" type="search" id="courseSearchInput" placeholder="Search" aria-label="Search" />
+					<button class="nav-link" type="submit">Поиск</button>
+				</form>
+			</div>
+		</nav>
+		<section class="main-content">
+			<!-- Курсы -->
+			
+		</section>
+
+		<!-- Создать курс -->
+		<div class="container" id="conterrr" style = "display: none;">
+			<input type="text" id="subjectInput" placeholder="Название предмета" />
+
+			<input type="text" id="teacherInput" placeholder="ФИО преподавателя" />
+
+			<input type="text" id="groupInput" placeholder="Номер группы" />
+
+			<input type="text" id="descriptionInput" placeholder="Ваш репозиторий" />
+
+			<input type="text" id="passwordInput" placeholder="Пароль" />
+
+			<button id="addTaskBtn">Добавить курс</button>
+
+			<h2 id="courses1" style="color: #ffffff; ">Мои курсы</h2>
+			<!-- список моих курсов -->
+			<ul id="completedTaskList"></ul>
+
+			<h2 id="courses" style="color: #ffffff; ">Все курсы</h2>
+			<!-- список всех курсов -->
+			<ul id="taskList"></ul>
+		</div>
+
+
+
+
+		<div id="myCoursesContainer" class="container" style="">
+			<div class="row">
+				<!-- Здесь будут отображаться курсы, добавленные пользователем -->
+			</div>
+		</div>
+
+		<div class="container1">
+			<div class="row">
+				<div class="col">
+					<h2>Добро пожаловать на нашу образовательную платформу SkufCourse!</h2>
+					<p>Здесь вы найдете широкий выбор курсов по различным предметам и областям знаний.</p>
+					<p>Наша цель - помочь студентам учиться и развиваться в удобной и интересной форме.</p>
+				</div>
+				<div class="col">
+					<img src="imgs/1.jpg" alt="Изображение" class="img-fluid" />
+				</div>
+			</div>
+		</div>
+
+		<!-- FOOTER -->
+		<!-- <footer>
+			<section class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-6">
+							<h4>Информация</h4>
+							<ul class="list-unstyled">
+								<li><a href="#">Главная</a></li>
+							</ul>
+						</div>
+
+						<div class="col-md-3 col-6">
+							<h4>Адрес</h4>
+							<ul class="list-unstyled">
+								<li>Саратов, ул. Вольская, 10а</li>
+							</ul>
+						</div>
+
+						<div class="col-md-3 col-6">
+							<h4>Контакты</h4>
+							<ul class="list-unstyled">
+								<li>
+									<a href="tel:+79432532125">+7 964 999-91-46</a>
+								</li>
+								<li>
+									<a href="tel:+79432232125">+7 904 241-36-97</a>
+								</li>
+							</ul>
+						</div>
+
+						<div class="col-md-3 col-6">
+							<h4>Мы в сети:</h4>
+							<div class="footer-icons">
+								<a href="#"><i class="fa-brands fa-vk"></i></a>
+								<a href="#"><i class="fa-brands fa-telegram" style="color: #74c0fc"></i></a>
+								<a href="#"><i class="fa-brands fa-github" style="color: #ffffff"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</footer> -->
+		<!-- Скрипты -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+		<script src="https://kit.fontawesome.com/ec796c5424.js" crossorigin="anonymous"></script>
+
+		<!-- our scripts -->
+		<script src="script.js"></script>
+	</body>
+</html>

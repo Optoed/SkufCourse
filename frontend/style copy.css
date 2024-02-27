@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #444444;
+}
+
+a {
+	color: #ffc451;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ffd584;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Raleway', sans-serif;
+}
+
+/* *********************8 */
+
+body {
+	/* padding: 0; */
+	/* margin: 0; */
+	background-image: url('imgs/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	/*черный фон*/
+}
+/* html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+	font-family: 'Raleway';
+} */
+
+::-webkit-scrollbar {
+	width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+::-webkit-scrollbar {
+	width: 15px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #0d7b03eb;
+	border-radius: 10px;
+}
+
+.navbar {
+	/* background: #0d7b03eb; */
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.nav-link {
+	color: #f4f4f4;
+	cursor: pointer;
+}
+
+.navbar-brand {
+	color: #f4f4f4;
+	cursor: pointer;
+	font-size: 24px;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+	font-weight: 700;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.nav-link {
+	margin-right: 1em !important;
+}
+.nav-link:hover,
+.navbar-brand:hover {
+	/* background: #00ff22f3; */
+	color: #ffd584;
+	transition: all 0.5s;
+}
+.navbar-collapse {
+	justify-content: flex-end;
+}
+.navbar-toggler {
+	background: #fff !important;
+}
+
+.navbar a,
+.navbar a:focus {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 0 10px 30px;
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	white-space: nowrap;
+	transition: 0.3s;
+}
+
+.navbar-btns button {
+	/* color: #ffc451; */
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	/* Ваши стили здесь */
+}
+
+.navbar-btn-close button:hover {
+	background: #0fc928f3;
+	color: #ffc451;
+}
+
+/* Стили для поля ввода и кнопки поиска */
+.d-flex input[type='search'] {
+	/* Ваши стили здесь */
+	color: #000000;
+	padding: 10px 20px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.d-flex button[type='submit']:hover {
+	/* background: #0fc928f3; */
+	color: #ffffff;
+}
+
+.container1 {
+	padding: 50px;
+	background-color: #f8f9fa; /* Цвет фона контейнера */
+	border-radius: 10px; /* Скругление углов */
+}
+
+.container1 h2 {
+	font-size: 32px; /* Размер шрифта заголовка */
+	color: #343a40; /* Цвет текста заголовка */
+}
+
+.container1 p {
+	font-size: 18px; /* Размер шрифта текста */
+	color: #343a40; /* Цвет текста */
+}
+
+.img-fluid {
+	max-width: 100%; /* Чтобы изображение было адаптивным */
+	height: auto; /* Чтобы сохранить пропорции */
+	border-radius: 10px; /* Скругление углов */
+	margin-top: 20px; /* Отступ сверху */
+}
+
+.course-card {
+	background-color: #ffffff; /* Белый цвет фона */
+	border-radius: 10px; /* Закругление углов */
+	padding: 20px; /* Внутренний отступ */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+/* Изменение размера карточки на различных экранах */
+@media (max-width: 576px) {
+	.courses-card {
+		padding: 10px; /* Уменьшение внутреннего отступа на мобильных устройствах */
+	}
+}
+
+div,
+p {
+	margin-bottom: 0; /*убрать отступ p*/
+}
+
+.main-content {
+	margin-top: 20px; /* отступ с самого верха страницы */
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about .content h3 {
+	font-weight: 700;
+	font-size: 28px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.about .content ul {
+	list-style: none;
+	padding: 0;
+}
+
+.about .content ul li {
+	padding: 0 0 8px 26px;
+	position: relative;
+}
+
+.about .content ul i {
+	position: absolute;
+	font-size: 20px;
+	left: 0;
+	top: -3px;
+	color: #ffc451;
+}
+
+.about .content p:last-child {
+	margin-bottom: 0;
+}
+
+/************ FOOTER ************/
+
+.footer {
+	background-color: #343434;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #333; /* Цвет фона футера */
+	padding: 10px 0; /* Внутренние отступы верхнего и нижнего края футера */
+	text-align: center; /* Выравнивание текста по центру */
+}
+
+.footer h4 {
+	color: #ccc;
+	text-transform: uppercase;
+	font-style: 16px;
+	border-bottom: 1px solid #666;
+	padding-bottom: 3px;
+}
+
+.footer a {
+	text-decoration: none;
+	transition: all 0.3s;
+}
+
+.footer a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.footer a,
+.footer li {
+	color: #c8c8c8;
+}
+
+.footer li a {
+	/* чтобы вся область была кликабельной */
+	display: block;
+}
+
+.footer-icons a {
+	display: inline-block;
+	margin-right: 15px;
+	font-size: 20px;
+}
